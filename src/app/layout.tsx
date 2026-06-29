@@ -32,18 +32,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="light">
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <TooltipProvider>
           <SidebarProvider>
-            <AppSidebar />
-            <SidebarInset>
-              <AppHeader />
-              {/* DESIGNER: Main content area — padding/layout is in page or a shared wrapper */}
-              {children}
-            </SidebarInset>
+            <div className="flex min-h-svh w-full">
+              <AppSidebar />
+              <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+                <AppHeader />
+                <SidebarInset>{children}</SidebarInset>
+              </div>
+            </div>
           </SidebarProvider>
         </TooltipProvider>
       </body>

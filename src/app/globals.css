@@ -83,7 +83,7 @@
   /* Light mode — semantic tokens mapped from grey primitives */
   --background: var(--grey-100);
   --foreground: var(--grey-600);
-  --card: var(--grey-100);
+  --card: var(--grey-200);
   --card-foreground: var(--grey-600);
   --popover: var(--grey-100);
   --popover-foreground: var(--grey-600);
@@ -104,14 +104,14 @@
   --chart-3: #3d5a80;
   --chart-4: #e9c46a;
   --chart-5: #e76f51;
-  --sidebar: var(--grey-200);
-  --sidebar-foreground: var(--grey-600);
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--grey-500);
   --sidebar-primary-foreground: var(--grey-100);
-  --sidebar-accent: var(--grey-300);
-  --sidebar-accent-foreground: var(--grey-600);
-  --sidebar-border: var(--grey-300);
-  --sidebar-ring: var(--grey-400);
+  --sidebar-accent: var(--muted);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--background);
+  --sidebar-ring: var(--ring);
 }
 
 /* Dark mode — add class "dark" to <html> to enable */
@@ -139,14 +139,14 @@
   --chart-3: #e9c46a;
   --chart-4: #a78bfa;
   --chart-5: #f87171;
-  --sidebar: var(--grey-700);
-  --sidebar-foreground: var(--grey-100);
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--grey-100);
   --sidebar-primary-foreground: var(--grey-600);
-  --sidebar-accent: var(--grey-500);
-  --sidebar-accent-foreground: var(--grey-100);
-  --sidebar-border: var(--grey-500);
-  --sidebar-ring: var(--grey-400);
+  --sidebar-accent: var(--muted);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--background);
+  --sidebar-ring: var(--ring);
 }
 
 @layer base {
@@ -155,5 +155,36 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-icon {
+    @apply size-4 shrink-0;
+  }
+
+  .logo-theme-light {
+    display: block;
+  }
+
+  .logo-theme-dark {
+    display: none;
+  }
+
+  .dark .logo-theme-light {
+    display: none;
+  }
+
+  .dark .logo-theme-dark {
+    display: block;
   }
 }
