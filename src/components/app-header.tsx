@@ -1,6 +1,5 @@
 "use client"
 
-import { SidebarTrigger } from "@/components/ui/sidebar"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,48 +14,44 @@ import { ChevronRight } from "lucide-react"
 
 /**
  * DESIGNER NOTE: Wise-style top header
- * — Left: sidebar trigger + WISE logo. Right: Earn CTA + user profile (avatar, name, dropdown).
+ * — Right: Earn CTA + user profile (avatar, name, dropdown). Logo lives in the sidebar.
  * — Restyle: edit button variants, avatar size, or add --wise-* CSS variables in globals.css.
  */
 export function AppHeader() {
   return (
-    <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border bg-background px-4">
-      <SidebarTrigger className="-ml-1" />
-      {/* DESIGNER: Replace with your logo asset or SVG; Wise uses green "WISE" wordmark */}
-      <div className="flex items-center gap-2">
-        <span className="text-xl font-bold text-primary">WISE</span>
-      </div>
-      <div className="flex flex-1" />
-      <div className="flex items-center gap-2">
-        <Button size="sm">Earn €90</Button>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2">
-              <Avatar className="size-8">
-                <AvatarImage src="" alt="Carolina Fernandes" />
-                <AvatarFallback className="bg-muted text-muted-foreground text-xs">
-                  CF
-                </AvatarFallback>
-              </Avatar>
-              <span className="hidden text-sm font-medium sm:inline-block">
-                Carolina Fernandes
-              </span>
-              <ChevronRight className="size-4 text-muted-foreground" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>
-              <span className="font-normal">Account</span>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-destructive">
-              Log out
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+    <header className="flex shrink-0 flex-col bg-background pt-16">
+      <div className="flex h-14 w-full">
+        <div className="mx-auto flex h-full w-full max-w-[976px] items-center justify-end gap-2 px-6">
+          <Button size="sm">Earn €90</Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center gap-2">
+                  <Avatar className="size-8">
+                    <AvatarImage src="" alt="Carolina Fernandes" />
+                    <AvatarFallback className="bg-muted text-muted-foreground text-xs">
+                      CF
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="hidden text-sm font-medium sm:inline-block">
+                    Carolina Fernandes
+                  </span>
+                  <ChevronRight className="size-4 text-muted-foreground" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuLabel>
+                  <span className="font-normal">Account</span>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="text-destructive">
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+        </div>
       </div>
     </header>
   )
