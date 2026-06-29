@@ -124,8 +124,8 @@
   --popover-foreground: var(--grey-100);
   --primary: var(--green-500);
   --primary-foreground: var(--green-700);
-  --secondary: var(--green-100);
-  --secondary-foreground: var(--green-700);
+  --secondary: var(--green-700);
+  --secondary-foreground: var(--green-500);
   --muted: var(--grey-500);
   --muted-foreground: var(--grey-300);
   --accent: var(--grey-500);
